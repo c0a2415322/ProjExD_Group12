@@ -520,7 +520,7 @@ def main():
     except FileNotFoundError:
         ui_img = None
 
-    score =500
+    score = 0
     lives = 3
     tmr = 0
     clock = pg.time.Clock()
@@ -547,22 +547,22 @@ def main():
                 if activated:
                     skill_flashes.add(SkillFlash(life=12, alpha_hi=180, alpha_lo=0))
 
-            if event.type == pg.KEYDOWN and event.key == pg.K_e:
-                if score.value >= 20 and len(emps) == 0:
-                    score.value -= 20
-                    life_frames = max(1, int(0.05 * 50))
-                    # 修正：screen引数はゲーム画面用のscreenを渡す
-                    emps.add(EMP(emys, bombs, screen, life_frames))
-            if event.type == pg.KEYDOWN and event.key == pg.K_RETURN:
-                if score >= 200:
-                    score -= 200
-                    gravities.add(Gravity(400))
-                else:
-                    pass
-            if event.type == pg.KEYDOWN and event.key == pg.K_s:
-                if score.value >= 50 and len(shields) == 0:
-                    score.value -= 50
-                    shields.add(shield(bird, 400))
+            # if event.type == pg.KEYDOWN and event.key == pg.K_e:
+            #     if score.value >= 20 and len(emps) == 0:
+            #         score.value -= 20
+            #         life_frames = max(1, int(0.05 * 50))
+            #         # 修正：screen引数はゲーム画面用のscreenを渡す
+            #         emps.add(EMP(emys, bombs, screen, life_frames))
+            # if event.type == pg.KEYDOWN and event.key == pg.K_RETURN:
+            #     if score >= 200:
+            #         score -= 200
+            #         gravities.add(Gravity(400))
+            #     else:
+            #         pass
+            # if event.type == pg.KEYDOWN and event.key == pg.K_s:
+            #     if score.value >= 50 and len(shields) == 0:
+            #         score.value -= 50
+            #         shields.add(shield(bird, 400))
         
         # 修正：背景描画などはゲーム画面用screenに対して行う
         screen.blit(bg_img, [0, 0])
